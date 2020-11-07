@@ -6,10 +6,20 @@
 
 .app-wrapper {
   margin: 0 auto;
+  padding: 0 10px;
   display: grid;
   grid-template-areas: "h h" "n c";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   width: 1200px;
   grid-gap: 15px;
+}
+
+.app-wrapper-content {
+  color: #b6d3d8;
+  grid-area: c;
+  background-color: #423075;
+  border-radius: 6px;
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
+  padding: 5px;
 }

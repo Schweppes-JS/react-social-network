@@ -9,4 +9,6 @@
 
 .header img {
   height: 100%;
+  opacity: 0.5;
+  margin-left: 1vw;
 }

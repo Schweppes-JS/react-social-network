@@ -1,10 +1,11 @@
 import React from 'react';
 import style from './Header.module.css';
+import logo from '../../logo.svg';
 
 const Header = () => {
     return (
         <header className={style.header}>
-            <img src="https://autodoktor.com.ua/wp-content/uploads/Logo/Total-logo-earth.png" />
+                <img src={logo} alt="logo"/>
         </header>
     )
 }
