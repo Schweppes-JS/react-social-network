@@ -3,10 +3,17 @@ import style from './Dialogs.module.css';
 import { NavLink } from 'react-router-dom';
 
 const DialogItem = (props) => {
+   let path = "/dialogs/" + props.id;
    return (
       <div className={style.dialog + ' ' + style.active}>
-         {props.name}
+         <NavLink to={path}>{props.name}</NavLink>
       </div>
+   )
+}
+
+const Message = (props) => {
+   return (
+   <div className={style.message}>{props.message}</div>
    )
 }
 
@@ -14,33 +21,20 @@ const Dialogs = () => {
    return (
       <div className={style.dialogs}>
          <div className={style.dialogsItems}>
-            {/* <DialogItem nama="Dimych" id="1"/> */}
-            <div className={style.dialog + ' ' + style.active}>
-               <NavLink to="/dialogs/1">Alex</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/2">Eugune</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/3">Antony</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/4">Kristina</NavLink>
-            </div>
-            <div className={style.dialog}>
-             <NavLink to="/dialogs/5">Julia</NavLink>
-            </div>
-            <div className={style.dialog}>
-               <NavLink to="/dialogs/6">Mike</NavLink>
-            </div>
+            <DialogItem name="Alex" id="1"/>
+            <DialogItem name="Eugune" id="2"/>
+            <DialogItem name="Antony" id="3"/>
+            <DialogItem name="Kristina" id="4"/>
+            <DialogItem name="Julia" id="5"/>
+            <DialogItem name="Mike" id="6"/>
          </div>
          <div className={style.messages}>
-            <div className={style.message}>Hi!</div>
-            <div className={style.message}>How are you?</div>
-            <div className={style.message}>Not bad. And you?</div>
-            <div className={style.message}>Nothing special.</div>
-            <div className={style.message}>Do you want go out?</div>
-            <div className={style.message}>Yes? ofcourse!</div>
+            <Message message="Hi!"/>
+            <Message message="How are you?"/>
+            <Message message="Not bad. And you?"/>
+            <Message message="Nothing special."/>
+            <Message message="Do you want go out?"/>
+            <Message message="Yes? ofcourse!"/>
          </div>
       </div>
    )
