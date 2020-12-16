@@ -3,8 +3,18 @@ import style from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
 
 const MyPosts = () => {
+
+    let posts = [
+        { id: 1, message: 'Hi, how are you?', likesCount: 12 },
+        { id: 2, message: "It's my first post", likesCount: 11 },
+        { id: 1, message: 'Bla-bla?', likesCount: 12 },
+        { id: 1, message: 'React?', likesCount: 12 }
+    ]
+
+    let postsElement = posts.map(post => <Post massage={post.message} likesCount={post.likesCount} />);
+
     return (
-        <div className={style.postBlock}>
+        <div className={style.postsBlock}>
             <h3>My posts</h3>
             <div>
                 <textarea></textarea>
@@ -14,8 +24,7 @@ const MyPosts = () => {
                 <button>Remove</button>
             </div>
             <div className={style.posts}>
-                <Post massage="Hi, how are you?" />
-                <Post massage="It's my first post" />
+                {postsElement}
             </div>
         </div>
     )

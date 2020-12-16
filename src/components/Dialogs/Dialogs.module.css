@@ -12,6 +12,13 @@
 }
 
 .dialog {
+  margin: 5px 0;
+}
+
+.dialog a {
+  text-decoration: none;
+  color: #b6d3d8;
+  font-weight: 600;
 }
 
 .messages {
@@ -19,4 +26,5 @@
 }
 
 .message {
+  margin: 5px 0;
 }
