@@ -2,16 +2,9 @@ import React from 'react';
 import style from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
 
-    let posts = [
-        { id: 1, message: 'Hi, how are you?', likesCount: 12 },
-        { id: 2, message: "It's my first post", likesCount: 11 },
-        { id: 1, message: 'Bla-bla?', likesCount: 12 },
-        { id: 1, message: 'React?', likesCount: 12 }
-    ]
-
-    let postsElement = posts.map(post => <Post massage={post.message} likesCount={post.likesCount} />);
+    let postsElement = props.posts.map(post => <Post massage={post.message} likesCount={post.likesCount} />);
 
     return (
         <div className={style.postsBlock}>
