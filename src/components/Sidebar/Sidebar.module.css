@@ -1,0 +1,27 @@
+.item a {
+  color: #423075;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.33rem;
+}
+
+.item a.activeLink {
+  color: #246068;
+}
+
+.closestFriendsContainer {
+  margin-top: 30px;
+  border-top: 2px solid #246068;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.closestFriends {
+  margin-top: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  flex: 0 0 0;
+}

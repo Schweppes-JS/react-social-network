@@ -1,0 +1,16 @@
+.friendContainer {
+  color: #423075;
+  font-weight: 900;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  justify-content: center ;
+  align-items: center;
+}
+
+.friend {
+  height: 50px;
+  width: 50px;
+  background-color: #246068;
+  border-radius: 50%;
+}
