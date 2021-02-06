@@ -1,8 +1,7 @@
 import React from 'react';
 import style from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
-import { rerenderEntireTree } from '../../../render';
-import state from '../../../redux/state';
+import { rerenderEntireTree } from '../../../redux/state';
 
 const MyPosts = (props) => {
 
