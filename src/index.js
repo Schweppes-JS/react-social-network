@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App.jsx";
-import store from './redux/state';
+import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
 
 let rerender = (state) => {
@@ -13,4 +13,4 @@ let rerender = (state) => {
 
 rerender(store.getState());
 
-store.subscribe(rerender);
+store.subscribe(() => rerender(store.getState()));
