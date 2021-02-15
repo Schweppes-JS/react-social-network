@@ -62,7 +62,7 @@ let store = {
     this._state.profilePage.newPostText = '';
     this._callSubcriber(this._state);
   },
-  _updateNewPostText(newText) {
+  C(newText) {
     this._state.profilePage.newPostText = newText;
     this._callSubcriber(this._state);
   },
