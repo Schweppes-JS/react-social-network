@@ -1,0 +1,17 @@
+.userPhoto {
+  height: 100px;
+}
+
+.selectedPage {
+  font-weight: 900;
+}
+
+.pageNumberContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pageNumber {
+  cursor: pointer;
+}
