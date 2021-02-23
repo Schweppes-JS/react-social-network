@@ -15,3 +15,7 @@
 .pageNumber {
   cursor: pointer;
 }
+
+.usersContainer {
+  display: none;
+}

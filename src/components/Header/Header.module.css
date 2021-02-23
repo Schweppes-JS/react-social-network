@@ -12,3 +12,11 @@
   opacity: 0.5;
   margin-left: 1vw;
 }
+
+.loginBock {
+  float: right;
+}
+
+.loginBock a {
+  color: #123034;
+}
