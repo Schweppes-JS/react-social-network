@@ -30,20 +30,23 @@ function Users(props) {
             </div>
             <div>
               {user.followed ?
-
-                <button onClick={() => {
+                <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                  props.toggleFollowingProgress(true, user.id);
                   followersAPI.unfollow(user.id).then(response => {
                     if (response.data.resultCode === 0) {
                       props.unfollow(user.id);
-                    }
+                    };
+                    props.toggleFollowingProgress(false, user.id);
                   });
                 }}>Unfollow</button> :
 
-                <button onClick={() => {
+                <button disabled={props.followingInProgress.some(id => id === user.id)} onClick={() => {
+                  props.toggleFollowingProgress(true, user.id);
                   followersAPI.follow(user.id).then(response => {
                     if (response.data.resultCode === 0) {
                       props.follow(user.id);
-                    }
+                    };
+                    props.toggleFollowingProgress(false, user.id);
                   });
                 }}>Follow</button>}
             </div>
