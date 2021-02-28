@@ -14,11 +14,11 @@ import { getUsers } from '../../redux/users-reducer';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.getUsers(this.props.setCurrentPage, this.props.pageSizeS);
+    this.props.getUsers(this.props.setCurrentPage, this.props.pageSize);
   }
 
   onPageChanged = (page) => {
-    this.props.getUsers(this.props.setCurrentPage, page);
+    this.props.getUsers(page);
   }
 
   render() {

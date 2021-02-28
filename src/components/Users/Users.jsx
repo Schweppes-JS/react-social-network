@@ -5,18 +5,19 @@ import styles from './user.module.css';
 import { followersAPI } from '../../api/api';
 
 function Users(props) {
-
+  debugger
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
-
   return (
     <div className={props.isFetching ? styles.usersContainer : null}>
       <div className={styles.pageNumberContainer}>
         {pages.map(page => <span
-          onClick={(e) => props.onPageChanged(page)}
+          onClick={(e) => {
+            console.log(page, pages);
+            props.onPageChanged(page)}}
           className={`${props.curentPage === page ? styles.selectedPage : ''} ${styles.pageNumber}`}>_{page}
         </span>)}
       </div>

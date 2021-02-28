@@ -10,8 +10,12 @@ const instance = axios.create({
 
 export const usersAPI = {
   getUsers: (curentPage = 1, pageSize = 100) => {
+    
     return instance.get(`users?page=${curentPage}&count=${pageSize}`)
       .then(response => response.data);
+  },
+  getProfile: (userId) => {
+    return instance.get(`profile/${userId}`);
   }
 }
 
@@ -21,5 +25,11 @@ export const followersAPI = {
   },
   follow: (userId) => {
     return instance.post(`follow/${userId}`);
+  }
+}
+
+export const authApi = {
+  authMe: () => {
+    return instance.get(`/auth/me`);
   }
 }
