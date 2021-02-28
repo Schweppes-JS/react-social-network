@@ -4,11 +4,12 @@ import Dialogs from './Dialogs';
 
 import { updateNewMessageActionCreator, sendMessageActionCreator } from '../../redux/dialogs-reducer';
 import { connect } from 'react-redux';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
+import { ProfileContainer } from '../Profile/ProfileContainer';
 
 const mapStateToProps = (state) => {
    return {
-      dialogsPage: state.dialogsPage,
-      isAuth: state.auth.isAuth
+      dialogsPage: state.dialogsPage
    };
 }
 
@@ -22,7 +23,10 @@ const mapDispatchToProps = (dispatch) => {
       }
    };
 }
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+const AuthRedirectComponent = withAuthRedirect(Dialogs);
+
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent);
 
 
 export default DialogsContainer;

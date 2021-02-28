@@ -5,7 +5,6 @@ import styles from './user.module.css';
 import { followersAPI } from '../../api/api';
 
 function Users(props) {
-  debugger
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
