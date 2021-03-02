@@ -33,7 +33,6 @@ const MyPosts = (props) => {
     let postsElement = props.posts.map(post => <Post massage={post.message} likesCount={post.likesCount} />);
 
     const createNewPost = (value) => {
-        console.log(value)
         props.addPost(value.post);
     }
 
