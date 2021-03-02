@@ -15,7 +15,6 @@ function Users(props) {
       <div className={styles.pageNumberContainer}>
         {pages.map(page => <span
           onClick={(e) => {
-            console.log(page, pages);
             props.onPageChanged(page)}}
           className={`${props.curentPage === page ? styles.selectedPage : ''} ${styles.pageNumber}`}>_{page}
         </span>)}

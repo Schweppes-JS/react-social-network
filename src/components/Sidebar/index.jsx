@@ -6,7 +6,6 @@ import style from './Sidebar.module.css';
 import Friend from './Friend'
 
 function Sidebar({ friends }) {
-  console.log(friends)
   return (
     <div className={`${style.item} ${style.closestFriendsContainer}`}>
       <NavLink to="/friends" activeClassName={style.activeLink}>Friends</NavLink>
