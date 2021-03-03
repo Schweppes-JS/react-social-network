@@ -11,14 +11,18 @@ import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
+import Preloader from "./components/common/preloader/Preloader";
 
 class App extends React.Component {
 
   componentDidMount() {
-    this.props.getAuthUserData();
+    this.props.initializeApp();
   }
 
   render() {
+    if(!this.props.initialized) {
+      return <Preloader />
+    }
     return (
       <div className="app-wrapper">
         <HeaderContainer />
@@ -42,9 +46,11 @@ class App extends React.Component {
   }
 };
 
-
+const mapStateToProps = state => ({
+  initialized: state.app.initialized
+});
 
 export default compose(
   withRouter,
-  connect(null, { initializeApp })
+  connect(mapStateToProps, { initializeApp })
 )(App);
