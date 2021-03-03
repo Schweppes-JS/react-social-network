@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import userPhoto from '../../assets/user.png';
 import styles from './user.module.css';
-import { followersAPI } from '../../api/api';
 
 function Users(props) {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -13,7 +12,7 @@ function Users(props) {
   return (
     <div className={props.isFetching ? styles.usersContainer : null}>
       <div className={styles.pageNumberContainer}>
-        {pages.map(page => <span
+        {pages.map(page => <span key={page}
           onClick={(e) => {
             props.onPageChanged(page)}}
           className={`${props.curentPage === page ? styles.selectedPage : ''} ${styles.pageNumber}`}>_{page}

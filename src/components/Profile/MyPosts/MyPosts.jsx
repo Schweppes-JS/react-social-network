@@ -30,7 +30,7 @@ const ReduxPostForm = reduxForm({
 })(PostFrom);
 
 const MyPosts = (props) => {
-    let postsElement = props.posts.map(post => <Post massage={post.message} likesCount={post.likesCount} />);
+    let postsElement = props.posts.map(post => <Post key={post.id} massage={post.message} likesCount={post.likesCount} />);
 
     const createNewPost = (value) => {
         props.addPost(value.post);
