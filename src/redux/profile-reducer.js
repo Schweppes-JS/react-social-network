@@ -16,7 +16,7 @@ let initailState = {
   status: ""
 }
 
-const profileReducer = (state = initailState, action) => {
+export const profileReducer = (state = initailState, action) => {
   switch (action.type) {
     case ADD_POST: {
       return {

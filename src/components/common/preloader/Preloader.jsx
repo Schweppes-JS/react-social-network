@@ -5,7 +5,7 @@ import styles from './loader.module.css';
 function Preloader(props) {
   return (
     <div className={styles.loaderContainer}>
-      <img src={loader} />
+      <img src={loader} alt="loading"/>
     </div>
   )
 }
