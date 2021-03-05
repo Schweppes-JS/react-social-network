@@ -23,11 +23,13 @@ import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.setCurrentPage, this.props.pageSize);
+    const {setCurrentPage, pageSize} = this.props;
+    this.props.requestUsers(setCurrentPage, pageSize);
   }
 
   onPageChanged = (page) => {
-    this.props.requestUsers(page);
+    const { pageSize } = this.props;
+    this.props.requestUsers(page, pageSize);
   }
 
   render() {

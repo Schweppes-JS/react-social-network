@@ -1,0 +1,14 @@
+.selectedPage {
+  font-weight: 900;
+  color: #246068;
+}
+
+.pageNumberContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pageNumber {
+  cursor: pointer;
+}
