@@ -12,3 +12,18 @@
     padding: 5px;
     color: #BB3535;
 }
+
+.fieldContainer {
+    display: flex;
+    margin: 10px 0;
+}
+
+.field {
+    padding: 5px;
+    min-width: 250px;
+    font-size: 1.13rem;
+}
+
+.checkbox {
+    margin-right: 5px;
+}

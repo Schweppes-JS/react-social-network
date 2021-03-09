@@ -3,21 +3,23 @@ import Pagination from '../common/Pagination/Pagination';
 import User from './User';
 import styles from './user.module.css';
 
-function Users({curentPage, onPageChanged, isFetching, totalUsersCount, pageSize, followingInProgress, unfollowRequest, followRequest, ...props}) {
+function Users({curentPage, onPageChanged, isFetching, totalItemsCount, pageSize, followingInProgress, unfollowRequest, followRequest, ...props}) {
   return (
-    <div className={isFetching ? styles.usersContainer : null}>
+    <div className={isFetching ? styles.usersContainerNone : styles.usersContainer}>
       <Pagination
         curentPage={curentPage}
         onPageChanged={onPageChanged}
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalItemsCount}
         pageSize={pageSize}
       />
-      {props.users.map(user => <User
-                                  key={user.id}
-                                  user={user}
-                                  followingInProgress={followingInProgress}
-                                  unfollowRequest={unfollowRequest}
-                                  followRequest={followRequest}/>)}
+      <div className={styles.usersWarapper}>
+        {props.users.map(user => <User
+                                    key={user.id}
+                                    user={user}
+                                    followingInProgress={followingInProgress}
+                                    unfollowRequest={unfollowRequest}
+                                    followRequest={followRequest}/>)}
+      </div>
     </div>
   )
 }

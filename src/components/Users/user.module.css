@@ -2,6 +2,44 @@
   height: 100px;
 }
 
-.usersContainer {
+.usersContainerNone {
   display: none;
+}
+
+.usersContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.usersWarapper {
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 10px; */
+}
+
+.user {
+  padding: 0 10px;
+  margin: 10px 0;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  border-left: 1px solid rgba(36, 96, 104, 0.571);
+}
+
+.user:nth-child(5n+6), .user:nth-child(1) {
+  border-left: none;
+}
+
+.user a {
+  align-self: center;
+}
+
+.user button {
+  align-self: center;
+}
+
+.user p {
+  align-self: center;
 }

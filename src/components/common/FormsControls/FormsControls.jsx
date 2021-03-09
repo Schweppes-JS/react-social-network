@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './FormsControls.module.css';
 import { Field } from 'redux-form';
 
-const FromControl = ({input, meta: {touched, error}, children }) => {
+const FormControl = ({input, meta: {touched, error}, children }) => {
     const hasError = touched && error;
     return (
         <div className={styles.formControl + ' ' + ( hasError ? styles.error : '' )}>
@@ -16,17 +16,19 @@ const FromControl = ({input, meta: {touched, error}, children }) => {
 
 export const Textarea = (props) => {
     const {input, meta, ...restProps} = props;
-    return <FromControl {...props}><textarea {...input} {...restProps} /></FromControl>
+    return <FormControl {...props}><textarea {...input} {...restProps} /></FormControl>
 }
 
 export const Input = (props) => {
     const {input, meta, ...restProps} = props;
-    return <FromControl {...props}><input {...input} {...restProps} /></FromControl>
+    return <FormControl {...props}><input {...input} {...restProps} /></FormControl>
 }
 
-export const createField = (placeholder, name, validators, component, props, text) => (
-    <div>
+export const createField = (placeholder, name, validators, component, props, text) => {
+    return (
+    <div className={styles.fieldContainer}>
         <Field
+            className={props && props.type === "checkbox" ? styles.checkbox : styles.field}
             placeholder={placeholder}
             name={name}
             component={component}
@@ -34,4 +36,4 @@ export const createField = (placeholder, name, validators, component, props, tex
             {...props}
         />{text}
     </div>
-)
+)}

@@ -1,16 +1,18 @@
 .header {
   grid-area: h;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: #246068;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.5);
-  padding: 5px;
+  padding: 10px;
 }
 
 .header img {
   height: 100%;
   opacity: 0.5;
-  margin-left: 1vw;
 }
 
 .loginBock {

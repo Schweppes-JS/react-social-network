@@ -1,0 +1,12 @@
+.login {
+  display: flex;
+  flex-direction: column;
+}
+
+.login h1 {
+  align-self: center;
+}
+
+.login form {
+  align-self: center;
+}

@@ -5,7 +5,9 @@ import { required } from '../../utils/validators/required';
 import { connect } from 'react-redux';
 import { login } from "../../redux/auth-reducer";
 import { Redirect } from 'react-router-dom';
-import styles from '../common/FormsControls/FormsControls.module.css';
+import formStyles from '../common/FormsControls/FormsControls.module.css';
+import styles from './Login.module.css';
+import Button from '../common/Button/Button';
 
 const LoginFrom = ({ handleSubmit, error }) => {
     return (
@@ -13,13 +15,9 @@ const LoginFrom = ({ handleSubmit, error }) => {
                 {createField("Email", "email", [required], Input)}
                 {createField("Password", "password", [required], Input, { type: "password" })}
                 {createField(null, "rememberMe", [], Input, { type: "checkbox" }, "remember me" )}
-            { error && 
-                <div className={styles.formSummaryError}>
-                    {error}
-                </div>
-            }
+            {error && <div className={formStyles.formSummaryError}>{error}</div>}
             <div>
-                <button>Login</button>
+                <Button>Login</Button>
             </div>
         </form>
     )
@@ -38,7 +36,7 @@ function Login(props) {
     }
 
     return (
-        <div>
+        <div className={styles.login}>
             <h1>Login</h1>
             <ReduxLoginForm onSubmit={onSubmit}/>
         </div>

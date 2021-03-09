@@ -4,11 +4,15 @@
 }
 
 .pageNumberContainer {
+  padding: 5px 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   width: 100%;
 }
 
 .pageNumber {
+  padding: 0 5px;
   cursor: pointer;
 }
