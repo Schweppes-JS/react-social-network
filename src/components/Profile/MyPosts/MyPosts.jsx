@@ -1,9 +1,10 @@
 import React from 'react';
-import style from './MyPosts.module.css';
+import styles from './MyPosts.module.css';
 import Post from './Post/Post.jsx';
 import { Field, reduxForm } from 'redux-form';
 import { maxLengthCreator, required } from '../../../utils/validators/required';
 import { Textarea } from '../../common/FormsControls/FormsControls';
+import Button from '../../common/Button/Button';
 
 
 const maxLength300 = maxLengthCreator(300);
@@ -19,7 +20,7 @@ const PostFrom = (props) => {
                 />
             </div>
             <div>
-                <button>Add post</button>
+                <Button>Add post</Button>
             </div>
         </form>
     )
@@ -38,11 +39,10 @@ const MyPosts = React.memo(props => {
     }
 
     return (
-        <div className={style.postsBlock}>
+        <div className={styles.postsBlock}>
             <h3>My posts</h3>
-                <ReduxPostForm onSubmit={createNewPost}/>
-                <button>Remove</button>
-            <div className={style.posts}>
+            <ReduxPostForm onSubmit={createNewPost} />
+            <div className={styles.posts}>
                 {postsElement}
             </div>
         </div>

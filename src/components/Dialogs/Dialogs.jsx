@@ -7,6 +7,7 @@ import Message from './Message/Message';
 import { Field, reduxForm } from 'redux-form';
 import { Textarea } from '../common/FormsControls/FormsControls';
 import { maxLengthCreator, required } from '../../utils/validators/required';
+import Button from '../common/Button/Button';
 
 const maxLentgth200 = maxLengthCreator(200);
 
@@ -18,17 +19,17 @@ const AddMessageForm = (props) => {
                component={Textarea}
                name="newMessageBody"
                placeholder="Ented your message"
-               validate={[required, maxLentgth200 ]}
+               validate={[required, maxLentgth200]}
             />
          </div>
          <div>
-            <button>Send</button>
+            <Button>Send</Button>
          </div>
       </form>
    )
 }
 
-const ReduxMessageForm = reduxForm({form: 'message'})(AddMessageForm);
+const ReduxMessageForm = reduxForm({ form: 'message' })(AddMessageForm);
 
 const Dialogs = (props) => {
 
@@ -51,7 +52,7 @@ const Dialogs = (props) => {
                {messagesElements}
             </div>
          </div>
-         <ReduxMessageForm onSubmit={addNewMessage}/>
+         <ReduxMessageForm onSubmit={addNewMessage} />
       </div >
    )
 }
