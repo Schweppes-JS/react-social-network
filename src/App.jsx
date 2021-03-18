@@ -3,15 +3,13 @@ import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
-import { Route } from "react-router-dom";
+import { BrowserRouter, Route, HashRouter, withRouter } from "react-router-dom";
 import Login from "./components/Login/Login";
 import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import Preloader from "./components/common/preloader/Preloader";
 import store from './redux/redux-store';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { withSuspense } from './hoc/withSuspense';
 
@@ -61,11 +59,11 @@ const AppContainer = compose(
 )(App);
 
 const MainApp = props => {
-  return <BrowserRouter basename={process.env.PUBLIC_URL}>
+  return <HashRouter>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 
 export default MainApp;
