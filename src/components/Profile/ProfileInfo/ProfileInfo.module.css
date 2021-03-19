@@ -13,3 +13,13 @@
   box-shadow: 0 0 5px 0 #246068;
   max-width: 200px;
 }
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact {
+  margin-left: 15px;
+}
