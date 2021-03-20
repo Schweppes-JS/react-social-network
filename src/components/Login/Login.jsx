@@ -9,13 +9,15 @@ import formStyles from '../common/FormsControls/FormsControls.module.css';
 import styles from './Login.module.css';
 import Button from '../common/Button/Button';
 
-const LoginFrom = ({ handleSubmit, error }) => {
+const LoginFrom = ({ handleSubmit, error, captchaUrl }) => {
     return (
         <form onSubmit={handleSubmit}>
-                {createField("Email", "email", [required], Input)}
-                {createField("Password", "password", [required], Input, { type: "password" })}
-                {createField(null, "rememberMe", [], Input, { type: "checkbox" }, "remember me" )}
+            {createField("Email", "email", [required], Input)}
+            {createField("Password", "password", [required], Input, { type: "password" })}
+            {createField(null, "rememberMe", [], Input, { type: "checkbox" }, "remember me")}
             {error && <div className={formStyles.formSummaryError}>{error}</div>}
+            {captchaUrl && <img src={captchaUrl} />}
+            {captchaUrl && createField("Symbols from image", "captcha", [required], Input)}
             <div>
                 <Button>Login</Button>
             </div>
@@ -23,12 +25,12 @@ const LoginFrom = ({ handleSubmit, error }) => {
     )
 }
 
-const ReduxLoginForm = reduxForm({form: 'login'})(LoginFrom);
+const ReduxLoginForm = reduxForm({ form: 'login' })(LoginFrom);
 
 
 function Login(props) {
     const onSubmit = formData => {
-        props.login(formData.email, formData.password, formData.remeberMe);
+        props.login(formData.email, formData.password, formData.remeberMe, formData.captcha);
     }
 
     if (props.isAuth) {
@@ -38,12 +40,13 @@ function Login(props) {
     return (
         <div className={styles.login}>
             <h1>Login</h1>
-            <ReduxLoginForm onSubmit={onSubmit}/>
+            <ReduxLoginForm captchaUrl={props.captchaUrl} onSubmit={onSubmit} />
         </div>
     )
 }
 
 const mapStateToProps = state => ({
+    captchaUrl: state.auth.captchaUrl,
     isAuth: state.auth.isAuth
 });
 

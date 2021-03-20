@@ -9,15 +9,15 @@ const ProfileDataForm = ({ handleSubmit, profile, error }) => {
     <form className={style.infoBlock} onSubmit={handleSubmit}>
       <button>Save</button>
       {error && <div className={formStyles.formSummaryError}>{error}</div>}
-      <p><b>Full name</b>: {createField("Full name", "fullName", [], Input)}</p>
-      <p><b>Looking for a job</b>: {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}</p>
-      <p><b>My professional skills</b>: {createField("My professional skills", "lookingForAJobDescription", [], Textarea)}</p>
+      <span><b>Full name</b>: {createField("Full name", "fullName", [], Input)}</span>
+      <span><b>Looking for a job</b>: {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}</span>
+      <span><b>My professional skills</b>: {createField("My professional skills", "lookingForAJobDescription", [], Textarea)}</span>
       <div className={style.contactsBlock}><b>Contacts</b>: {Object.keys(profile.contacts).map(key => {
         return <div key={key} className={style.contact}>
           <b>{key}:{createField(key, "contacts." + key, [], Input)}</b>
         </div>
       })}</div>
-      <p><b>About me</b>:{createField("About Me", "aboutMe", [], Textarea)}</p>
+      <span><b>About me</b>:{createField("About Me", "aboutMe", [], Textarea)}</span>
     </form>
   )
 }
