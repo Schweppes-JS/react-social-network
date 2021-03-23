@@ -13,10 +13,11 @@ export class ProfileContainer extends Component {
       userId = this.props.authorizedUserId;
       if (!userId) {
         this.props.history.push("/login");
+      } else {
+        this.props.getUserProfile(userId);
+        this.props.getStatus(userId);
       }
     }
-    this.props.getUserProfile(userId);
-    this.props.getStatus(userId);
   }
 
   componentDidMount() {

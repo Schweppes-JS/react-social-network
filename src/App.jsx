@@ -3,7 +3,7 @@ import "./App.css";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Navbar from "./components/Navbar/Navbar";
 import UsersContainer from "./components/Users/UsersContainer";
-import { BrowserRouter, Route, HashRouter, withRouter } from "react-router-dom";
+import { Route, HashRouter, withRouter, Switch, Redirect } from "react-router-dom";
 import Login from "./components/Login/Login";
 import { initializeApp } from './redux/app-reducer';
 import { connect } from 'react-redux';
@@ -22,6 +22,10 @@ class App extends React.Component {
     this.props.initializeApp();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandleErrors);
+  }
+
   render() {
     if (!this.props.initialized) {
       return <Preloader />
@@ -31,18 +35,21 @@ class App extends React.Component {
         <HeaderContainer />
         <Navbar />
         <div className="app-wrapper-content">
-
-          <Route path="/dialogs"
-            render={withSuspense(DialogsContainer)} />
-          <Route path="/profile/:userId?"
-            render={withSuspense(ProfileContainer)} />
-          <Route path="/friends"
-            render={() => <DialogsContainer />} />
-          <Route path="/users"
-            render={() => <UsersContainer />} />
-          <Route path="/login"
-            render={() => <Login />} />
-
+          <Switch>
+            <Redirect exact from="/" to="/profile" />
+            <Route path="/dialogs"
+              render={withSuspense(DialogsContainer)} />
+            <Route path="/profile/:userId?"
+              render={withSuspense(ProfileContainer)} />
+            <Route path="/friends"
+              render={() => <DialogsContainer />} />
+            <Route path="/users"
+              render={() => <UsersContainer />} />
+            <Route path="/login"
+              render={() => <Login />} />
+            <Route path="*"
+              render={() => <div>404 NOT FOUND</div>} />
+          </Switch>
         </div>
       </div>
     );

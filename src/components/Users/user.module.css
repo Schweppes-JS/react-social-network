@@ -12,11 +12,13 @@
 }
 
 .usersWarapper {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 }
 
 .user {
+  min-width: 20%;
   padding: 0 10px;
   margin: 10px 0;
   display: flex;

@@ -10,7 +10,12 @@ body {
   font-family: 'Ubuntu', sans-serif;
 }
 
+#root {
+  height: 100vh;
+}
+
 .app-wrapper {
+  min-height: 100%;
   margin: 0 auto;
   padding: 0 10px;
   display: grid;

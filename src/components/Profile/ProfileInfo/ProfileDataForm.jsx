@@ -3,11 +3,12 @@ import style from './ProfileInfo.module.css';
 import formStyles from '../../common/FormsControls/FormsControls.module.css';
 import { reduxForm } from 'redux-form';
 import { createField, Input, Textarea } from '../../common/FormsControls/FormsControls';
+import Button from "../../common/Button/Button";
 
 const ProfileDataForm = ({ handleSubmit, profile, error }) => {
   return (
     <form className={style.infoBlock} onSubmit={handleSubmit}>
-      <button>Save</button>
+      <Button>Save</Button>
       {error && <div className={formStyles.formSummaryError}>{error}</div>}
       <span><b>Full name</b>: {createField("Full name", "fullName", [], Input)}</span>
       <span><b>Looking for a job</b>: {createField("", "lookingForAJob", [], Input, { type: "checkbox" })}</span>

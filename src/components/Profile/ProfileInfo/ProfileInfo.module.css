@@ -2,6 +2,11 @@
   padding: 10px;
 }
 
+.avatarBlock {
+  display: flex;
+  flex-direction: column;
+}
+
 .profileImage {
   width: 100%;
   border-top-left-radius: 6px;

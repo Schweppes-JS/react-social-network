@@ -8,12 +8,7 @@ const DELETE_POST = 'DELETE_POST';
 const SAVE_PHOTO_SUCCESS = 'SAVE_PHOTO_SUCCESS';
 
 let initailState = {
-  posts: [
-    { id: 1, message: 'Hi, how are you?', likesCount: 12 },
-    { id: 2, message: "It's my first post", likesCount: 11 },
-    { id: 3, message: 'Bla-bla?', likesCount: 12 },
-    { id: 4, message: 'React?', likesCount: 12 }
-  ],
+  posts: [],
   newPostText: 'it camasutra',
   profile: null,
   status: ""
@@ -76,9 +71,13 @@ export const getStatus = (userId) => {
 }
 export const updateStatus = (status) => {
   return async (dispatch) => {
-    const response = await profileAPI.updateStatus(status);
-    if (response.data.resultCode === 0) {
-      dispatch(setStatus(status));
+    try {
+      const response = await profileAPI.updateStatus(status);
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
+    } catch (error) {
+      alert("Max Status length is 300 symbols");
     }
   }
 }
