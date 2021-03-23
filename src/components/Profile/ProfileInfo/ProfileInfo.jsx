@@ -35,7 +35,9 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, savePr
                         alt="user avatar"
                         className={style.profilePhoto}
                     />
-                    {isOwner && <input type="file" onChange={onPhotoSelected} />}
+                    {isOwner && <label htmlFor="upload-button" className={style.customUploadButton}>Upload photo
+                        <input id="upload-button" className={style.uploadButton} type="file" onChange={onPhotoSelected} />
+                    </label>}
                 </div>
 
                 {editMode ? <ProfileDataForm onSubmit={onSubmit} initialValues={profile} profile={profile} /> : <ProfileData profile={profile} isOwner={isOwner} goToEditMode={() => setEditMode(true)} />}

@@ -7,6 +7,22 @@
   flex-direction: column;
 }
 
+.customUploadButton {
+  align-self: flex-start;
+  padding: 5px 10px;
+  background-color: #AA8639;
+  color: #423075;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin: 5px 0;
+}
+
+.uploadButton {
+  display: none;
+}
+
 .profileImage {
   width: 100%;
   border-top-left-radius: 6px;
