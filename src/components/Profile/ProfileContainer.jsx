@@ -17,6 +17,9 @@ export class ProfileContainer extends Component {
         this.props.getUserProfile(userId);
         this.props.getStatus(userId);
       }
+    } else {
+      this.props.getUserProfile(userId);
+      this.props.getStatus(userId);
     }
   }
 

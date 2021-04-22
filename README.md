@@ -1,13 +1,16 @@
+# Demo
+
+![print](./demo.gif)
+
 # Live page
 
 https://schweppes-js.github.io/react-social-network
 
 # Login
 
-User name: Schweppes
-Password: asd761326
+### Email: sergeyshevcheno95@gmail.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Password: 761326
 
 ## Available Scripts
 
